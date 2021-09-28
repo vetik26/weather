@@ -9,7 +9,7 @@ class Installer
     {
         foreach ($days as $item)
         {
-            $this->days[]= new Info( $item->day->maxtemp_c, $item->day->avgtemp_c,$item->day->condition->text,$item->hour);
+            $this->days[]= new Info($item->date,$item->day->maxtemp_c, $item->day->avgtemp_c,$item->day->condition->text,$item->hour);
         }
     }
     /**

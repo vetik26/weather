@@ -1,6 +1,14 @@
+
+body
+{
+    background-color: cadetblue;
+}
 .container
 {
-    margin-bottom: 20px;
+    align-content: center;
+    margin: auto;
+    border: black;
+    margin-bottom: 30px;
     display: flex;
     background-color: deepskyblue;
     width: 100%;
@@ -14,10 +22,10 @@
 .box
 {
     text-align: center;
-    margin-right: 10px;
+    margin-right: 30px;
     display: inline-block;
-    background-color: #939393;
-    width: 100px;
+    background-color: white;
+    width: 200px;
     height: 100px;
     left:25%;
     }

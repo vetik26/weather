@@ -3,8 +3,6 @@
 
 require_once 'Info.php';
 require_once 'Installer.php';
-//echo '<pre>';
-//print_r($installer->getDays());
 ?>
 
 <!doctype html>
@@ -20,6 +18,9 @@ require_once 'Installer.php';
 <body>
 <form action="#" method="get">
     <select name="city">
+        <option value="Riga">Riga</option>
+        <option value="Miami">Miami</option>
+        <option value="Vancuver">Vancuver</option>
         <option value="Moscow">Moscow</option>
         <option value="Helsinki">Helsinki</option>
     </select>
@@ -42,30 +43,40 @@ $time = (int) explode(":",explode(" ",$weatherData->location->localtime)[1])[0];
 
 
 ?>
+
+
     <div class="container">
+        <h2>Weather:</h2>
+
         <?php foreach ($installer->getDays() as $day):?>
+
         <div class="box">
-            <?=$day->getMaxTemp()?><br>
-            <?=$day->getAvgTemp()?><br>
-            <?=$day->getCondition()?>
+            <?='Date: ' . $day->getDate()?><br>
+            <?='Max Temp: ' . $day->getMaxTemp(). '℃'?><br>
+            <?='Average Temp: '.$day->getAvgTemp(). '℃'?><br>
+            <?='Condition: '.$day->getCondition()?>
 
         </div>
         <?php endforeach;?>
     </div>
 <div class="container hour">
+    <h2>Hours:</h2>
+
     <?php foreach ($installer->getDays()[0]->getHours() as $day):?>
     <?php if(($time <= (int) explode(":",explode(" ",$day->time)[1])[0]) && $count < $hours ):?>
 
         <div class="box">
-            <?=$day->temp_c?><br>
-            <?=$day->condition->text?><br>
-            <?=$day->time?><br>
+            <?='Temperature: '. $day->temp_c . '℃'?><br>
+            <?='Condition: '.$day->condition->text?><br>
+            <?='Time:'.$day->time?><br>
             <?php $count++?>
 
         </div>
     <?php endif;?>
-        <?php $count=0?>
+
     <?php endforeach;?>
+    <?php $count=0?>
+
 </div>
 </body>
 </html>

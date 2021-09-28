@@ -6,13 +6,15 @@ class Info
     private float $avgTemp;
     private string $condition;
     private array $hours;
+    private string $date;
 
-    public function __construct(float $maxTemp, float $avgTemp, string $condition, array $hours)
+    public function __construct(string $date,float $maxTemp, float $avgTemp, string $condition, array $hours)
     {
         $this->maxTemp = $maxTemp;
         $this->avgTemp = $avgTemp;
         $this->condition = $condition;
         $this->hours = $hours;
+        $this->date = $date;
     }
 
     /**
@@ -45,5 +47,13 @@ class Info
     public function getHours(): array
     {
         return $this->hours;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDate(): string
+    {
+        return $this->date;
     }
 }
